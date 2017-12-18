@@ -1,8 +1,8 @@
-import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE, REGISTER_USER } from './app/constants/constants'
+import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE, REGISTER_USER, NAVIGATE_HOME } from './app/constants/constants'
 import { put, takeEvery } from 'redux-saga/effects'
 import { registerUserFirebase, getPeople } from './app/lib/api'
 
-function* fetchData (action) {
+function* fetchData(action) {
   console.log('fetching data saga is called!');
   try {
     const data = yield getPeople()
@@ -17,6 +17,7 @@ function* registerUser(action) {
   try {
     const data = yield registerUserFirebase(action.data)
     yield put({ type: FETCHING_DATA_SUCCESS, data })
+    yield put({ type: NAVIGATE_HOME })
   } catch (e) {
     yield put({ type: FETCHING_DATA_FAILURE })
   }

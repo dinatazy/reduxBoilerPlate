@@ -31,9 +31,10 @@ class Launch extends Component {
 
     render() {
         let { email, password } = this.state
+        //to do navigate and show data there
         return (
             <View style={styles.container}>
-
+                
                 <FormLabel>Email</FormLabel>
                 <FormInput onChangeText={(email) => { this.setState({ email }) }} />
 
@@ -41,9 +42,11 @@ class Launch extends Component {
                 <FormInput onChangeText={(password) => { this.setState({ password }) }} />
 
                 <Button
-                    title='SUBMIT'
-                    onPress={() => this.props.registerUser(email,password)}
+                    title='Register'
+                    onPress={() => this.props.registerUser(email, password)}
+                    buttonStyle = {{backgroundColor:'#000080', marginTop:20, }}
                 />
+            
             </View>
         );
     }

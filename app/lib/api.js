@@ -17,9 +17,9 @@ export function getPeople() {
 export function registerUserFirebase(data) {
   console.log('in register firebase api', )
   return new Promise((resolve, reject) => {
-    firebase.auth().createUserWithEmailAndPassword(data.email, data.email)
+    firebase.auth().createUserWithEmailAndPassword(data.email, data.password)
       .then((result) => {
-        resolve(result)
+        resolve(result.email)
       })
       .catch((error) => {
         reject(error)
