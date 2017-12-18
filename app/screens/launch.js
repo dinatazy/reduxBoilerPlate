@@ -8,43 +8,42 @@ import {
     StyleSheet
 } from 'react-native';
 import { connect } from 'react-redux'
-import { fetchData } from '../actions/actions'
+import { fetchData, registerUser } from '../actions/actions'
 import firebase from 'firebase'
+import { FormLabel, FormInput, Button } from 'react-native-elements'
 
 class Launch extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            email: null,
+            password: null,
+        }
     }
 
-/*     componentDidMount() {
-        firebase.auth().createUserWithEmailAndPassword('email@email.com', '123456').then(function (res) {
-            console.log('res', res)
-        });
-    } */
+    /*     componentDidMount() {
+            firebase.auth().createUserWithEmailAndPassword('email@email.com', '123456').then(function (res) {
+                console.log('res', res)
+            });
+        } */
+
 
     render() {
+        let { email, password } = this.state
         return (
             <View style={styles.container}>
-                <Text style={styles.text}>Redux Examples</Text>
-                <TouchableHighlight style={styles.button} onPress={() => this.props.fetchData()}>
-                    <Text style={styles.buttonText}>Load Data</Text>
-                </TouchableHighlight>
-                <View style={styles.mainContent}>
-                    {
-                        this.props.appData.isFetching && <Text>Loading</Text>
-                    }
-                    {
-                        this.props.appData.data.length ? (
-                            this.props.appData.data.map((person, i) => {
-                                return <View key={i} >
-                                    <Text>Name: {person.name}</Text>
-                                    <Text>Age: {person.age}</Text>
-                                </View>
-                            })
-                        ) : null
-                    }
-                </View>
+
+                <FormLabel>Email</FormLabel>
+                <FormInput onChangeText={(email) => { this.setState({ email }) }} />
+
+                <FormLabel>Password</FormLabel>
+                <FormInput onChangeText={(password) => { this.setState({ password }) }} />
+
+                <Button
+                    title='SUBMIT'
+                    onPress={() => this.props.registerUser(email,password)}
+                />
             </View>
         );
     }
@@ -82,7 +81,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchData: () => dispatch(fetchData())
+        registerUser: (email, password) => dispatch(registerUser(email, password))
     }
 }
 
