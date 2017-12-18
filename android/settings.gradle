@@ -1,0 +1,3 @@
+rootProject.name = 'reduxBoilerPlate'
+
+include ':app'
