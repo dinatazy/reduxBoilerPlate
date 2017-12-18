@@ -2,10 +2,11 @@
 
 import React, { Component } from 'react';
 import {
-    View
+    View,
+    Text,
 } from 'react-native';
 
-class Launch extends Component {
+export default class Launch extends Component {
     constructor(props) {
         super(props);
     }
@@ -13,7 +14,7 @@ class Launch extends Component {
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: "white" }}>
-
+                <Text>Launch</Text>
             </View>
         );
     }

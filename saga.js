@@ -1,6 +1,6 @@
-import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE } from './constants/constants'
+import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE } from './app/constants/constants'
 import { put, takeEvery } from 'redux-saga/effects'
-import getPeople from './lib/api'
+import getPeople from './app/lib/api'
 
 function* fetchData (action) {
   console.log('fetching data saga is called!');
