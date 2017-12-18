@@ -5,6 +5,17 @@ import { Provider, connect} from 'react-redux'
 import storeConfigure from './app/config/storeConfig'
 import AppNavigator from './app/navigators/appNavigator'
 import { addNavigationHelpers } from "react-navigation";
+import firebase from 'firebase'
+
+var config = {
+  apiKey: "AIzaSyCCOKlE9x6A7WUBWNQKnnrLc9eGNfNphds",
+  authDomain: "my-project-1504690858587.firebaseapp.com",
+  databaseURL: "https://my-project-1504690858587.firebaseio.com",
+  projectId: "my-project-1504690858587",
+  storageBucket: "my-project-1504690858587.appspot.com",
+  messagingSenderId: "7984496866"
+};
+firebase.initializeApp(config);
 
 
 

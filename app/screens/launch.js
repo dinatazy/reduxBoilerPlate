@@ -9,12 +9,19 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux'
 import { fetchData } from '../actions/actions'
+import firebase from 'firebase'
 
 class Launch extends Component {
-    
+
     constructor(props) {
         super(props);
     }
+
+/*     componentDidMount() {
+        firebase.auth().createUserWithEmailAndPassword('email@email.com', '123456').then(function (res) {
+            console.log('res', res)
+        });
+    } */
 
     render() {
         return (
